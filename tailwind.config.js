@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        inter: "'Inter', sans-serif",
+        source: "'Source Sans 3', sans-serif",
+        kufam: "'Kufam', sans-serif",
       },
     },
   },
