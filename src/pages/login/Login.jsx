@@ -1,8 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
   return (
     <div className="bg-gray-100 min-h-[calc(100vh-72px)] flex items-center justify-center font-kufam">
+      <Helmet>
+        <title>HomeLocus | Login</title>
+      </Helmet>
       <div className="w-full max-w-md p-6 m-auto mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800">
         <div className="flex justify-center items-center mx-auto">
           {/* <img className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt="" /> */}
