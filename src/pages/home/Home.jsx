@@ -19,6 +19,7 @@ const Home = () => {
           delay: 2500,
           disableOnInteraction: false,
         }}
+        loop={true}
         pagination={{ clickable: true }}
         modules={[Pagination, Autoplay]}
         className="mySwiper h-[calc(100vh-78px)] w-full rounded-3xl">
