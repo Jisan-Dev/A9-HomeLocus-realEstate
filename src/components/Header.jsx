@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
   const [clicked, setClicked] = useState(false);
@@ -41,7 +41,9 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn btn-neutral lg:px-6 font-bold lg:text-lg">Sign In</a>
+          <Link to="/login" className="btn btn-neutral lg:px-6 font-bold lg:text-lg">
+            Sign In
+          </Link>
         </div>
       </div>
     </header>

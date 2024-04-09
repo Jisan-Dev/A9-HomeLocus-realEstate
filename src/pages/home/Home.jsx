@@ -16,7 +16,7 @@ const Home = () => {
     <div className="w-full container mx-auto overflow-hidden relative">
       <Swiper
         autoplay={{
-          delay: 2500,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         loop={true}
