@@ -1,8 +1,39 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { z } from 'zod';
+
+const schema = z.object({
+  name: z.string().min(2).max(50).nonempty(),
+  email: z.string().email(),
+  photo: z.string().url(),
+  password: z
+    .string()
+    .min(6)
+    .refine((value) => /^(?=.*[a-z])(?=.*[A-Z]).+$/.test(value), {
+      message: 'Password must contain at least one uppercase letter and one lowercase letter',
+    }),
+});
 
 const Register = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({ defaultValues: {}, resolver: zodResolver(schema) });
+
+  const submitHandler = (data) => {
+    try {
+      console.log('User data is valid:', data);
+    } catch (e) {
+      console.log(e);
+    }
+    // resetField('username');
+    reset();
+  };
   return (
     <div className="bg-gray-100 min-h-[calc(100vh-72px)] flex items-center justify-center font-kufam">
       <Helmet>
@@ -13,7 +44,7 @@ const Register = () => {
           <h1 className="text-2xl sm:text-3xl text-transparent bg-gradient-to-br from-slate-950 via-slate-600 to-slate-950 bg-clip-text font-black font-kufam">REGISTER</h1>
         </div>
 
-        <form className="mt-6">
+        <form className="mt-6" onSubmit={handleSubmit(submitHandler)}>
           <div>
             <label htmlFor="username" className="block text-sm text-gray-800 dark:text-gray-200">
               Username
@@ -21,9 +52,10 @@ const Register = () => {
             <input
               type="text"
               id="username"
+              {...register('name')}
               className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              required
             />
+            {errors.name && <div className="text-red-500 text-xs">{errors.name.message}</div>}
           </div>
 
           <div>
@@ -33,9 +65,11 @@ const Register = () => {
             <input
               type="email"
               id="email"
+              {...register('email')}
               className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
               required
             />
+            {errors.email && <div className="text-red-500 text-xs">{errors.email.message}</div>}
           </div>
 
           <div>
@@ -45,8 +79,8 @@ const Register = () => {
             <input
               type="photo"
               id="photo"
+              {...register('photo')}
               className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              required
             />
           </div>
 
@@ -63,9 +97,11 @@ const Register = () => {
             <input
               type="password"
               id="password"
+              {...register('password')}
               className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
               required
             />
+            {errors.password && <div className="text-red-500 text-xs">{errors.password.message}</div>}
           </div>
 
           <div className="mt-6">
