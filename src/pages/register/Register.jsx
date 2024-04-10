@@ -1,10 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { z } from 'zod';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const schema = z.object({
   name: z.string().min(2).max(50).nonempty(),
@@ -19,6 +20,9 @@ const schema = z.object({
 });
 
 const Register = () => {
+  const authInfo = useContext(AuthContext);
+  console.log(authInfo);
+
   const {
     register,
     handleSubmit,
