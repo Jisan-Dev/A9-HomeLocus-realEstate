@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
+  const [isPassVisible, setIsPassVisible] = useState(false);
+
   return (
     <div className="bg-slate-100 min-h-[calc(100vh-72px)] flex items-center justify-center font-kufam">
       <Helmet>
@@ -35,11 +38,19 @@ const Login = () => {
               </a>
             </div>
 
-            <input
-              type="password"
-              id="password"
-              className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
-            />
+            <div className="relative">
+              <input
+                type={isPassVisible ? 'text' : 'password'}
+                id="password"
+                className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                required
+              />
+              {isPassVisible ? (
+                <FaEyeSlash onClick={() => setIsPassVisible(!isPassVisible)} className="absolute top-3 right-3 text-xl cursor-pointer" />
+              ) : (
+                <FaEye onClick={() => setIsPassVisible(!isPassVisible)} className="absolute top-3 right-3 text-xl cursor-pointer" />
+              )}
+            </div>
           </div>
 
           <div className="mt-6">
