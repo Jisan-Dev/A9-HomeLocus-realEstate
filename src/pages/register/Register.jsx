@@ -1,9 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { z } from 'zod';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const schema = z.object({
   name: z.string().min(2).max(50).nonempty(),
@@ -24,6 +25,8 @@ const Register = () => {
     reset,
     formState: { errors },
   } = useForm({ defaultValues: {}, resolver: zodResolver(schema) });
+
+  const [isPassVisible, setIsPassVisible] = useState(false);
 
   const submitHandler = (data) => {
     try {
@@ -94,13 +97,20 @@ const Register = () => {
               </a>
             </div>
 
-            <input
-              type="password"
-              id="password"
-              {...register('password')}
-              className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              required
-            />
+            <div className="relative">
+              <input
+                type={isPassVisible ? 'text' : 'password'}
+                id="password"
+                {...register('password')}
+                className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                required
+              />
+              {isPassVisible ? (
+                <FaEyeSlash onClick={() => setIsPassVisible(!isPassVisible)} className="absolute top-3 right-3 text-xl cursor-pointer" />
+              ) : (
+                <FaEye onClick={() => setIsPassVisible(!isPassVisible)} className="absolute top-3 right-3 text-xl cursor-pointer" />
+              )}
+            </div>
             {errors.password && <div className="text-red-500 text-xs">{errors.password.message}</div>}
           </div>
 
