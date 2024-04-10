@@ -20,8 +20,7 @@ const schema = z.object({
 });
 
 const Register = () => {
-  const authInfo = useContext(AuthContext);
-  console.log(authInfo);
+  const { createUser, googleLogin } = useContext(AuthContext);
 
   const {
     register,
@@ -33,11 +32,15 @@ const Register = () => {
   const [isPassVisible, setIsPassVisible] = useState(false);
 
   const submitHandler = (data) => {
-    try {
-      console.log('User data is valid:', data);
-    } catch (e) {
-      console.log(e);
-    }
+    console.log('User data is valid:', data);
+    createUser(data.email, data.password)
+      .then((result) => {
+        console.log(result.user);
+        reset();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     // resetField('username');
     reset();
   };
@@ -137,6 +140,7 @@ const Register = () => {
 
         <div className="flex items-center mt-6 -mx-2">
           <button
+            onClick={() => googleLogin()}
             type="button"
             className="flex items-center justify-center w-full px-6 py-2 mx-2 text-sm font-medium text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:bg-blue-400 focus:outline-none">
             <svg className="w-4 h-4 mx-2 fill-current" viewBox="0 0 24 24">
