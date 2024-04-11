@@ -20,7 +20,7 @@ const schema = z.object({
 });
 
 const Register = () => {
-  const { createUser, googleLogin } = useContext(AuthContext);
+  const { createUser, handleUpdateProfile, googleLogin } = useContext(AuthContext);
 
   const {
     register,
@@ -35,8 +35,10 @@ const Register = () => {
     console.log('User data is valid:', data);
     createUser(data.email, data.password)
       .then((result) => {
-        console.log(result.user);
-        reset();
+        handleUpdateProfile(data.name, data.photo).then(() => {
+          console.log(result.user);
+          reset();
+        });
       })
       .catch((error) => {
         console.log(error);
