@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
 
 const Header = () => {
   const [clicked, setClicked] = useState(false);
+  const { user, logoutUser } = useContext(AuthContext);
   return (
     <header className="container mx-auto font-source">
       <div className="navbar bg-base-100">
@@ -41,9 +43,25 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login" className="btn btn-neutral lg:px-6 font-bold lg:text-lg">
-            Sign In
-          </Link>
+          {user ? (
+            <>
+              <div className="tooltip tooltip-left cursor-pointer -mb-1" data-tip={user.displayName}>
+                <div className="avatar">
+                  <div className="w-12 rounded-full mr-2">
+                    <img src={user.photoURL || 'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'} />
+                  </div>
+                </div>
+              </div>
+
+              <button onClick={logoutUser} className="btn btn-neutral lg:px-6 font-bold lg:text-lg">
+                Sign Out
+              </button>
+            </>
+          ) : (
+            <Link to="/login" className="btn btn-neutral lg:px-6 font-bold lg:text-lg">
+              Sign In
+            </Link>
+          )}
         </div>
       </div>
     </header>
