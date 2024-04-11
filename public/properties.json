@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "estate_title": "Cozy Single-Family Home",
+    "segment_name": "Single-family home",
+    "description": "Beautiful single-family home with a spacious backyard, perfect for families.",
+    "price": "$300,000",
+    "status": "sale",
+    "area": "2,500 sq ft",
+    "location": "123 Main St, Anytown, USA",
+    "facilities": ["3 bedrooms", "2 bathrooms", "living room", "kitchen", "backyard"],
+    "image": "https://i.ibb.co/TKWq30b/single-family-home.jpg"
+  },
+  {
+    "id": 2,
+    "estate_title": "Luxury Townhouse",
+    "segment_name": "Townhouse",
+    "description": "Modern townhouse with high-end finishes and rooftop terrace.",
+    "price": "$500,000",
+    "status": "sale",
+    "area": "2,000 sq ft",
+    "location": "456 Elm St, Anycity, USA",
+    "facilities": ["3 bedrooms", "3.5 bathrooms", "living room", "kitchen", "rooftop terrace"],
+    "image": "https://i.ibb.co/27mTZs1/Luxury-Townhouse.jpg"
+  },
+  {
+    "id": 3,
+    "estate_title": "Downtown Apartment",
+    "segment_name": "Apartment",
+    "description": "Chic apartment in the heart of downtown with city views.",
+    "price": "$1,800/month",
+    "status": "rent",
+    "area": "1,200 sq ft",
+    "location": "789 Oak St, Anycity, USA",
+    "facilities": ["2 bedrooms", "1 bathroom", "living room", "kitchen", "city views"],
+    "image": "https://i.ibb.co/ncCKtwF/Downtown-Apartment.jpg"
+  },
+  {
+    "id": 4,
+    "estate_title": "Student Housing Complex",
+    "segment_name": "Student housing",
+    "description": "Purpose-built student housing complex with amenities.",
+    "price": "$800/month (per bed)",
+    "status": "rent",
+    "area": "Shared common areas",
+    "location": "101 University Ave, Anytown, USA",
+    "facilities": ["Furnished bedrooms", "Shared kitchen", "Study lounges", "Fitness center"],
+    "image": "https://i.ibb.co/kgbJW2h/Student-Housing-Complex.jpg"
+  },
+  {
+    "id": 5,
+    "estate_title": "Senior Living Community",
+    "segment_name": "Senior living community",
+    "description": "Retirement community offering independent living with care services.",
+    "price": "$3,000/month",
+    "status": "rent",
+    "area": "Varies by unit",
+    "location": "111 Maple St, Anytown, USA",
+    "facilities": ["Assisted living services", "Recreational activities", "Dining facilities", "Gardens"],
+    "image": "https://i.ibb.co/dkWjJyf/Senior-Living-Community.jpg"
+  },
+  {
+    "id": 6,
+    "estate_title": "Beachfront Vacation Rental",
+    "segment_name": "Vacation rental",
+    "description": "Spectacular beachfront vacation rental with stunning ocean views.",
+    "price": "$300/night",
+    "status": "rent",
+    "area": "1,500 sq ft",
+    "location": "123 Beach Blvd, Anybeach, USA",
+    "facilities": ["3 bedrooms", "2 bathrooms", "Oceanfront patio", "Fully equipped kitchen"],
+    "image": "https://i.ibb.co/1qDd6fJ/Beachfront-Vacation.jpg"
+  }
+]
