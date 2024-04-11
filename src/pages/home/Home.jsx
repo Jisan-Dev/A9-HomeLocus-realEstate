@@ -17,7 +17,7 @@ const Home = () => {
   const properties = useLoaderData();
 
   return (
-    <div className="w-full container mx-auto overflow-hidden relative">
+    <div className="w-full container mx-auto overflow-hidden relative pb-32">
       <Swiper
         autoplay={{
           delay: 3000,
@@ -39,7 +39,9 @@ const Home = () => {
               <Link to="/register" className="btn font-bold hover:bg-transparent hover:text-white sm:text-lg">
                 Get Started
               </Link>
-              <Link className="btn btn-outline hover:bg-white hover:text-slate-800 text-white font-bold sm:text-lg">Explore</Link>
+              <a href="#properties" className="btn btn-outline hover:bg-white hover:text-slate-800 text-white font-bold sm:text-lg">
+                Explore
+              </a>
             </div>
           </div>
         </SwiperSlide>
@@ -55,7 +57,9 @@ const Home = () => {
               <Link to="/register" className="btn font-bold hover:bg-transparent hover:text-white sm:text-lg">
                 Get Started
               </Link>
-              <Link className="btn btn-outline hover:bg-white hover:text-slate-800 text-white font-bold sm:text-lg">Explore</Link>
+              <a href="#properties" className="btn btn-outline hover:bg-white hover:text-slate-800 text-white font-bold sm:text-lg">
+                Explore
+              </a>
             </div>
           </div>
         </SwiperSlide>
@@ -71,21 +75,23 @@ const Home = () => {
               <Link to="/register" className="btn font-bold hover:bg-transparent hover:text-white sm:text-lg">
                 Get Started
               </Link>
-              <Link className="btn btn-outline hover:bg-white hover:text-slate-800 text-white font-bold sm:text-lg">Explore</Link>
+              <a href="#properties" className="btn btn-outline hover:bg-white hover:text-slate-800 text-white font-bold sm:text-lg">
+                Explore
+              </a>
             </div>
           </div>
         </SwiperSlide>
       </Swiper>
 
-      <section className="mt-28">
+      <section id="properties" className="mt-32">
         <header className="font-kufam flex flex-col items-center justify-center mb-5">
           <p className="text-neutral-700 text-base lg:text-lg font-semibold uppercase tracking-[6px] mb-3">| Featured properties |</p>
-          <h2 className="max-w-[690px] text-center text-neutral-950 leading-none text-3xl max-sm:px-2 sm::text-[50px] font-bold">
+          <h2 className="max-w-[690px] text-center text-neutral-950 leading-none text-3xl max-sm:px-2 sm:text-[50px] font-bold">
             Properties for sale & rent in your favorite area
           </h2>
         </header>
 
-        <main className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
+        <main className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
           {properties.map((property) => (
             <PropertyCard key={property.id} property={property} />
           ))}

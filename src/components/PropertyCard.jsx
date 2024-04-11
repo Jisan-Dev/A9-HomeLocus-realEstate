@@ -6,7 +6,7 @@ const PropertyCard = ({ property }) => {
   const { estate_title, price, status, image, location, facilities } = property;
   return (
     <div>
-      <div className="block rounded-lg p-4 shadow-md shadow-gray-200">
+      <div className="block rounded-lg p-4 shadow-md shadow-gray-300">
         <img alt="" src={image} className="h-56 w-full rounded-md object-cover" />
 
         <div className="mt-2">
