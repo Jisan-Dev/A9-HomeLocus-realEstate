@@ -21,16 +21,20 @@ const Login = () => {
   const [isPassVisible, setIsPassVisible] = useState(false);
   const { loginUser } = useContext(AuthContext);
 
-  const { register, handleSubmit } = useForm({ resolver: zodResolver(schema) });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: zodResolver(schema) });
 
   const submitHandler = (data) => {
-    console.log('User data is valid and logged in:', data);
+    console.log('User input data', data);
     loginUser(data.email, data.password)
       .then((result) => {
         console.log('logged in ', result.user);
       })
       .catch((error) => {
-        console.error(error);
+        alert(error.message);
       });
   };
 
@@ -55,6 +59,7 @@ const Login = () => {
               {...register('email')}
               className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
+            {errors.email && <div className="text-red-500 text-xs">{errors.email.message}</div>}
           </div>
 
           <div className="mt-4">
@@ -81,6 +86,7 @@ const Login = () => {
                 <FaEye onClick={() => setIsPassVisible(!isPassVisible)} className="absolute top-3 right-3 text-xl cursor-pointer" />
               )}
             </div>
+            {errors.password && <div className="text-red-500 text-xs">{errors.password.message}</div>}
           </div>
 
           <div className="mt-6">
