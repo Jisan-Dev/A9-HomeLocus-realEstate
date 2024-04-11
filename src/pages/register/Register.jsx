@@ -21,14 +21,14 @@ const schema = z.object({
 });
 
 const Register = () => {
-  const { createUser, handleUpdateProfile, googleLogin } = useContext(AuthContext);
+  const { createUser, handleUpdateProfile } = useContext(AuthContext);
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({ defaultValues: {}, resolver: zodResolver(schema) });
+  } = useForm({ resolver: zodResolver(schema) });
 
   const [isPassVisible, setIsPassVisible] = useState(false);
 

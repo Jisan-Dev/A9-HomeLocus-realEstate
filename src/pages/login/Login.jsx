@@ -1,10 +1,38 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { AuthContext } from '../../providers/AuthProvider';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+const schema = z.object({
+  email: z.string().email(),
+  password: z
+    .string()
+    .min(6)
+    .refine((value) => /^(?=.*[a-z])(?=.*[A-Z]).+$/.test(value), {
+      message: 'Password must contain at least one uppercase letter and one lowercase letter',
+    }),
+});
 
 const Login = () => {
   const [isPassVisible, setIsPassVisible] = useState(false);
+  const { loginUser } = useContext(AuthContext);
+
+  const { register, handleSubmit } = useForm({ resolver: zodResolver(schema) });
+
+  const submitHandler = (data) => {
+    console.log('User data is valid and logged in:', data);
+    loginUser(data.email, data.password)
+      .then((result) => {
+        console.log('logged in ', result.user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <div className="bg-slate-100 min-h-[calc(100vh-72px)] flex items-center justify-center font-kufam">
@@ -16,7 +44,7 @@ const Login = () => {
           <h1 className="text-2xl sm:text-3xl text-transparent bg-gradient-to-br from-slate-950 via-slate-600 to-slate-950 bg-clip-text font-black font-kufam">LOGIN</h1>
         </div>
 
-        <form className="mt-6">
+        <form onSubmit={handleSubmit(submitHandler)} className="mt-6">
           <div>
             <label htmlFor="email" className="block text-sm text-gray-800 dark:text-gray-200">
               Email
@@ -24,6 +52,7 @@ const Login = () => {
             <input
               type="email"
               id="email"
+              {...register('email')}
               className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
@@ -42,6 +71,7 @@ const Login = () => {
               <input
                 type={isPassVisible ? 'text' : 'password'}
                 id="password"
+                {...register('password')}
                 className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 required
               />
