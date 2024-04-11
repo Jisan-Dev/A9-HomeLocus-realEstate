@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-white dark dark:bg-gray-950 pt-10">
+    <footer className="bg-white dark dark:bg-gray-950 pt-10 font-kufam">
       <div className="container px-6 py-8 mx-auto">
         <div className="flex flex-col items-center text-center">
           <NavLink
@@ -12,11 +12,11 @@ const Footer = () => {
             HOMELOCUS
           </NavLink>
 
-          <p className="max-w-2xl mx-auto mt-4 text-lg text-gray-500 dark:text-gray-400">
+          <p className="max-w-3xl mx-auto mt-4 text-base tracking-wide text-gray-500 dark:text-gray-400">
             Search for a comfortable place to live with your new family and your child. Increase the harmony of your family and wife to be at home.
           </p>
 
-          <div className="flex flex-col mt-4 sm:flex-row sm:items-center sm:justify-center">
+          <div className="flex flex-col mt-4 sm:flex-row sm:items-center sm:justify-center font-source">
             <a
               href="#properties"
               className="flex items-center justify-center order-1 w-full px-2 py-2 mt-3 text-sm tracking-wide text-gray-600 capitalize transition-colors duration-300 transform border rounded-md sm:mx-2 dark:border-gray-400 dark:text-gray-300 sm:mt-0 sm:w-auto hover:bg-gray-50 focus:outline-none focus:ring dark:hover:bg-gray-800 focus:ring-gray-300 focus:ring-opacity-40">
@@ -31,7 +31,7 @@ const Footer = () => {
 
             <Link
               to="/register"
-              className="w-full border px-5 py-2 text-sm tracking-wide font-medium  text-neutral-900 capitalize transition-colors duration-300 transform bg-white rounded-md sm:mx-2 sm:order-2 sm:w-auto hover:bg-transparent hover:border hover:border-white hover:text-white focus:ring focus:ring-gray-300 focus:ring-opacity-40">
+              className="w-full border px-5 py-2 text-sm tracking-wide font-semibold  text-neutral-900 capitalize transition-colors duration-300 transform bg-white rounded-md sm:mx-2 sm:order-2 sm:w-auto hover:bg-transparent hover:border hover:border-white hover:text-white focus:ring focus:ring-gray-300 focus:ring-opacity-40">
               Get started
             </Link>
           </div>
