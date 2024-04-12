@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../providers/AuthProvider';
@@ -22,7 +22,7 @@ const schema = z.object({
 
 const Register = () => {
   const { createUser, handleUpdateProfile } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -44,8 +44,6 @@ const Register = () => {
       .catch((error) => {
         console.log(error);
       });
-    // resetField('username');
-    reset();
   };
   return (
     <div className="bg-gray-100 flex items-center justify-center font-kufam py-14">

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -21,6 +21,9 @@ const schema = z.object({
 const Login = () => {
   const [isPassVisible, setIsPassVisible] = useState(false);
   const { loginUser } = useContext(AuthContext);
+  const location = useLocation();
+
+  const navigate = useNavigate();
 
   const {
     register,
@@ -33,6 +36,7 @@ const Login = () => {
     loginUser(data.email, data.password)
       .then((result) => {
         console.log('logged in ', result.user);
+        navigate(location.state ?? '/');
       })
       .catch((error) => {
         alert(error.message);
