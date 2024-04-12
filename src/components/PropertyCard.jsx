@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { IoLocation } from 'react-icons/io5';
 import { TbHomeCheck } from 'react-icons/tb';
+import { Link } from 'react-router-dom';
 
 const PropertyCard = ({ property }) => {
-  const { estate_title, price, status, image, location, facilities } = property;
+  const { estate_title, price, status, image, location, facilities, id } = property;
   return (
     <div>
       <div className="block rounded-lg p-4 shadow-md shadow-gray-300">
@@ -53,9 +54,11 @@ const PropertyCard = ({ property }) => {
           </div>
           <div className="flex justify-end">
             <button className="group flex items-center bg-transparent p-2 text-sm font-medium text-gray-600 mt-1">
-              <span className="relative pr-4 pb-1 text-gray-900 after:transition-transform after:duration-500 after:ease-out after:absolute after:bottom-0 after:left-0 after:block after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-slate-500 after:content-[''] after:group-hover:origin-bottom-left after:group-hover:scale-x-100">
+              <Link
+                to={`/property-details/${id}`}
+                className="relative pr-4 pb-1 text-gray-900 after:transition-transform after:duration-500 after:ease-out after:absolute after:bottom-0 after:left-0 after:block after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-slate-500 after:content-[''] after:group-hover:origin-bottom-left after:group-hover:scale-x-100">
                 View Property
-              </span>
+              </Link>
               <svg
                 viewBox="0 0 46 16"
                 height="10"

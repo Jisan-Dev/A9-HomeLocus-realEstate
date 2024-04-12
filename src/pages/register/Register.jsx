@@ -48,7 +48,7 @@ const Register = () => {
     reset();
   };
   return (
-    <div className="bg-gray-100 flex items-center justify-center font-kufam py-20">
+    <div className="bg-gray-100 flex items-center justify-center font-kufam py-14">
       <Helmet>
         <title>HomeLocus | Register</title>
       </Helmet>
