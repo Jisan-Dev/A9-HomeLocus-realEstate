@@ -23,6 +23,11 @@ const Header = () => {
                 <li>
                   <NavLink to="/about">About</NavLink>
                 </li>
+                {user && (
+                  <li className="hover:text-neutral-900">
+                    <NavLink to="/profile">Profile</NavLink>
+                  </li>
+                )}
               </ul>
             )}
           </div>
@@ -40,6 +45,11 @@ const Header = () => {
             <li className="hover:text-neutral-900">
               <NavLink to="/about">About</NavLink>
             </li>
+            {user && (
+              <li className="hover:text-neutral-900">
+                <NavLink to="/profile">Profile</NavLink>
+              </li>
+            )}
           </ul>
         </div>
         <div className="navbar-end">

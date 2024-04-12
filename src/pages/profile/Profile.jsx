@@ -20,8 +20,8 @@ const Profile = () => {
   const submitHandler = (data) => {
     handleUpdateProfile(data.name, data.photo)
       .then(() => {
-        // setUpdatedUser(user) //we could do this as well to immediately change the profile name and img on the navbar UI.
-        window.location.reload();
+        // window.location.reload(); //we could do this as well to immediately change the profile name and img on the navbar UI.
+        setUpdatedUser(user);
         console.log('profile updated', user);
       })
       .catch((error) => console.error(error));
