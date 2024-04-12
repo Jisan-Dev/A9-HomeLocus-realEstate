@@ -21,7 +21,7 @@ const schema = z.object({
 });
 
 const Register = () => {
-  const { createUser, handleUpdateProfile, setUpdatedUser } = useContext(AuthContext);
+  const { createUser, handleUpdateProfile, setIsUserUpdated, isUserUpdated } = useContext(AuthContext);
   const navigate = useNavigate();
   const {
     register,
@@ -39,7 +39,7 @@ const Register = () => {
         if (result.user) {
           handleUpdateProfile(data.name, data.photo).then(() => {
             console.log('profile updated', result.user);
-            setUpdatedUser(result.user);
+            setIsUserUpdated(!isUserUpdated);
             reset();
             navigate('/');
           });

@@ -3,13 +3,16 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { AuthContext } from '../../providers/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const schema = z.object({
   name: z.string().min(2).max(50).nonempty(),
+  photo: z.string().url(),
 });
 
 const Profile = () => {
-  const { user, handleUpdateProfile, setUpdatedUser } = useContext(AuthContext);
+  const { user, handleUpdateProfile, setIsUserUpdated, isUserUpdated } = useContext(AuthContext);
 
   const {
     register,
@@ -21,8 +24,18 @@ const Profile = () => {
     handleUpdateProfile(data.name, data.photo)
       .then(() => {
         // window.location.reload(); //we could do this as well to immediately change the profile name and img on the navbar UI.
-        setUpdatedUser(user);
-        console.log('profile updated', user);
+        setIsUserUpdated(!isUserUpdated);
+        console.log('useijja', user);
+        toast.success('🦄 Wow so easy!', {
+          position: 'bottom-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
       })
       .catch((error) => console.error(error));
   };
@@ -59,6 +72,7 @@ const Profile = () => {
               {...register('photo')}
               className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
+            {errors.photo && <div className="text-red-500 text-xs">{errors.photo.message}</div>}
           </div>
 
           <div className="mt-6">
@@ -68,6 +82,7 @@ const Profile = () => {
           </div>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 };
