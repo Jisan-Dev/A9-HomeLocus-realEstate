@@ -16,6 +16,7 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [updatedUser, setUpdatedUser] = useState(null);
 
   // social auth provider
   const googleProvider = new GoogleAuthProvider();
@@ -60,9 +61,9 @@ const AuthProvider = ({ children }) => {
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [updatedUser]);
 
-  const authInfo = { user, createUser, handleUpdateProfile, loginUser, logoutUser, googleLogin, githubLogin };
+  const authInfo = { user, createUser, handleUpdateProfile, loginUser, logoutUser, googleLogin, githubLogin, setUpdatedUser };
   return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };
 

@@ -21,7 +21,7 @@ const schema = z.object({
 });
 
 const Register = () => {
-  const { createUser, handleUpdateProfile } = useContext(AuthContext);
+  const { createUser, handleUpdateProfile, setUpdatedUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const {
     register,
@@ -36,10 +36,14 @@ const Register = () => {
     console.log('User data is valid:', data);
     createUser(data.email, data.password)
       .then((result) => {
-        handleUpdateProfile(data.name, data.photo).then(() => {
-          console.log('profile updated', result.user);
-          reset();
-        });
+        if (result.user) {
+          handleUpdateProfile(data.name, data.photo).then(() => {
+            console.log('profile updated', result.user);
+            setUpdatedUser(result.user);
+            reset();
+            navigate('/');
+          });
+        }
       })
       .catch((error) => {
         console.log(error);
