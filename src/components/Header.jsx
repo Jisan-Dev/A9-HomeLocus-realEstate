@@ -81,9 +81,10 @@ const Header = () => {
                 </div>
               </div>
 
-              <button onClick={() => userLogout(logoutUser)} className="btn btn-neutral lg:px-6 font-bold lg:text-lg">
+              <button onClick={userLogout} className="btn btn-neutral lg:px-6 font-bold lg:text-lg">
                 Sign Out
               </button>
+              <ToastContainer />
             </>
           ) : (
             <Link to="/login" className="btn btn-neutral lg:px-6 font-bold lg:text-lg">

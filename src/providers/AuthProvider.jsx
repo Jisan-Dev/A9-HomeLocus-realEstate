@@ -24,10 +24,12 @@ const AuthProvider = ({ children }) => {
   const githubProvider = new GithubAuthProvider();
 
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const handleUpdateProfile = (name, photo) => {
+    setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
@@ -35,18 +37,22 @@ const AuthProvider = ({ children }) => {
   };
 
   const loginUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const logoutUser = () => {
+    setLoading(true);
     return signOut(auth);
   };
 
   const googleLogin = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   const githubLogin = () => {
+    setLoading(true);
     return signInWithPopup(auth, githubProvider);
   };
 
@@ -57,6 +63,7 @@ const AuthProvider = ({ children }) => {
         setLoading(false);
         console.log('currentUser: ', currentUser);
       } else {
+        setLoading(false);
         setUser(null);
         console.log('maybe logged out', currentUser);
       }

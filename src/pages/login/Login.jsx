@@ -7,6 +7,8 @@ import { z } from 'zod';
 import { AuthContext } from '../../providers/AuthProvider';
 import { zodResolver } from '@hookform/resolvers/zod';
 import SocialLogin from '../../components/SocialLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const schema = z.object({
   email: z.string().email(),
@@ -20,7 +22,7 @@ const schema = z.object({
 
 const Login = () => {
   const [isPassVisible, setIsPassVisible] = useState(false);
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, loading } = useContext(AuthContext);
   const location = useLocation();
 
   const navigate = useNavigate();
@@ -39,7 +41,8 @@ const Login = () => {
         navigate(location.state ?? '/');
       })
       .catch((error) => {
-        alert(error.message);
+        toast.error('Invalid credentials');
+        console.error(error);
       });
   };
 
@@ -118,6 +121,7 @@ const Login = () => {
           </Link>
         </p>
       </div>
+      <ToastContainer />
     </div>
   );
 };
