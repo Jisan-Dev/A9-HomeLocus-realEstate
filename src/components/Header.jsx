@@ -8,10 +8,12 @@ const Header = () => {
   const [clicked, setClicked] = useState(false);
   const { user, logoutUser } = useContext(AuthContext);
 
-  const userLogout = (logoutMethod) => {
-    logoutMethod().then(() => {
-      toast.success('successfully logged out');
+  const userLogout = () => {
+    logoutUser().then(() => {
+      toast('sasasa');
+      console.log('logged out');
     });
+    toast('sasasa');
   };
 
   return (
@@ -72,9 +74,10 @@ const Header = () => {
                 </div>
               </div>
 
-              <button onClick={() => userLogout(logoutUser)} className="btn btn-neutral lg:px-6 font-bold lg:text-lg">
+              <button onClick={userLogout} className="btn btn-neutral lg:px-6 font-bold lg:text-lg">
                 Sign Out
               </button>
+              <ToastContainer />
             </>
           ) : (
             <Link to="/login" className="btn btn-neutral lg:px-6 font-bold lg:text-lg">
@@ -83,18 +86,6 @@ const Header = () => {
           )}
         </div>
       </div>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
     </header>
   );
 };

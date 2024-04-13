@@ -22,7 +22,7 @@ const schema = z.object({
 
 const Login = () => {
   const [isPassVisible, setIsPassVisible] = useState(false);
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, loading } = useContext(AuthContext);
   const location = useLocation();
 
   const navigate = useNavigate();
@@ -121,18 +121,7 @@ const Login = () => {
           </Link>
         </p>
       </div>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
+      <ToastContainer />
     </div>
   );
 };
