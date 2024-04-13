@@ -26,7 +26,7 @@ const Profile = () => {
         // window.location.reload(); //we could do this as well to immediately change the profile name and img on the navbar UI.
         setIsUserUpdated(!isUserUpdated);
         console.log('useijja', user);
-        toast.success('🦄 Wow so easy!', {
+        toast.success('🦄 Profile Updated!', {
           position: 'bottom-right',
           autoClose: 5000,
           hideProgressBar: false,
