@@ -8,8 +8,8 @@ const Header = () => {
   const [clicked, setClicked] = useState(false);
   const { user, logoutUser } = useContext(AuthContext);
 
-  const userLogout = (logoutMethod) => {
-    logoutMethod().then(() => {
+  const userLogout = () => {
+    logoutUser().then(() => {
       toast.success('successfully logged out', {
         position: 'bottom-right',
         autoClose: 5000,
