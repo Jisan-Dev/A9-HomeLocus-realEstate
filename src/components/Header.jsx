@@ -1,10 +1,19 @@
 import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header = () => {
   const [clicked, setClicked] = useState(false);
   const { user, logoutUser } = useContext(AuthContext);
+
+  const userLogout = (logoutMethod) => {
+    logoutMethod().then(() => {
+      toast.success('successfully logged out');
+    });
+  };
+
   return (
     <header className="container mx-auto font-source">
       <div className="navbar bg-base-100">
@@ -38,7 +47,7 @@ const Header = () => {
           </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 text-neutral-600 text-base font-bold gap-2">
+          <ul className="menu menu-horizontal px-1 text-neutral-600 text-base font-bold gap-2 font-kufam">
             <li className="hover:text-neutral-900">
               <NavLink to="/">Home</NavLink>
             </li>
@@ -63,7 +72,7 @@ const Header = () => {
                 </div>
               </div>
 
-              <button onClick={logoutUser} className="btn btn-neutral lg:px-6 font-bold lg:text-lg">
+              <button onClick={() => userLogout(logoutUser)} className="btn btn-neutral lg:px-6 font-bold lg:text-lg">
                 Sign Out
               </button>
             </>
@@ -74,6 +83,18 @@ const Header = () => {
           )}
         </div>
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </header>
   );
 };
