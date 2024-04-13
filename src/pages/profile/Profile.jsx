@@ -23,9 +23,8 @@ const Profile = () => {
   const submitHandler = (data) => {
     handleUpdateProfile(data.name, data.photo)
       .then(() => {
-        // window.location.reload(); //we could do this as well to immediately change the profile name and img on the navbar UI.
         setIsUserUpdated(!isUserUpdated);
-        console.log('useijja', user);
+        // window.location.reload(); //we could do this as well to immediately change the profile name and img on the navbar UI.
         toast.success('🦄 Profile Updated!', {
           position: 'bottom-right',
           autoClose: 5000,
@@ -79,10 +78,10 @@ const Profile = () => {
             <button className="w-full px-6 py-2.5 text-base font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
               Submit
             </button>
+            <ToastContainer />
           </div>
         </form>
       </div>
-      <ToastContainer />
     </div>
   );
 };

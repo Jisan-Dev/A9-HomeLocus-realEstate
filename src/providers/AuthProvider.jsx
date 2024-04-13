@@ -17,6 +17,7 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isUserUpdated, setIsUserUpdated] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   // social auth provider
   const googleProvider = new GoogleAuthProvider();
@@ -53,6 +54,7 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
+        setLoading(false);
         console.log('currentUser: ', currentUser);
       } else {
         setUser(null);
@@ -61,9 +63,9 @@ const AuthProvider = ({ children }) => {
     });
 
     return () => unsubscribe();
-  }, [isUserUpdated]);
+  }, [isUserUpdated, user]);
 
-  const authInfo = { user, createUser, handleUpdateProfile, loginUser, logoutUser, googleLogin, githubLogin, isUserUpdated, setIsUserUpdated };
+  const authInfo = { user, createUser, handleUpdateProfile, loginUser, logoutUser, googleLogin, githubLogin, isUserUpdated, setIsUserUpdated, loading };
   return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };
 
