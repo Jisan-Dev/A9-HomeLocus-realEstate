@@ -6,10 +6,13 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from 'react-helmet-async';
+import { updateEmail } from 'firebase/auth';
+import auth from '../../firebase/firebase.config';
 
 const schema = z.object({
   name: z.string().min(2).max(50).nonempty(),
   photo: z.string().url(),
+  email: z.string().email(),
 });
 
 const Profile = () => {
@@ -19,9 +22,17 @@ const Profile = () => {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm({ defaultValues: { name: user?.displayName, photo: user?.photoURL }, resolver: zodResolver(schema) });
+  } = useForm({ defaultValues: { name: user?.displayName, photo: user?.photoURL, email: user?.email }, resolver: zodResolver(schema) });
 
   const submitHandler = (data) => {
+    updateEmail(auth.currentUser, data.email)
+      .then(() => {
+        console.log('auth-current', auth.currentUser);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
     handleUpdateProfile(data.name, data.photo)
       .then(() => {
         setIsUserUpdated(!isUserUpdated);
@@ -44,7 +55,7 @@ const Profile = () => {
   return (
     <div className="bg-slate-100 min-h-[calc(100vh-72px)] flex items-center justify-center font-kufam">
       <Helmet>
-        <title>HomeLocus | Profile</title>
+        <title>HomeLocus | Update Profile</title>
       </Helmet>
       <div className="w-md p-6 bg-white">
         <div className="flex justify-center items-center mx-auto">
@@ -77,6 +88,19 @@ const Profile = () => {
               className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
             {errors.photo && <div className="text-red-500 text-xs">{errors.photo.message}</div>}
+          </div>
+
+          <div className="mt-4">
+            <label htmlFor="photo" className="block text-sm text-gray-800 dark:text-gray-200">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              {...register('email')}
+              className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
+            />
+            {errors.email && <div className="text-red-500 text-xs">{errors.email.message}</div>}
           </div>
 
           <div className="mt-6">
