@@ -37,6 +37,16 @@ const Login = () => {
     console.log('User input data', data);
     loginUser(data.email, data.password)
       .then((result) => {
+        toast.success('successfully logged in', {
+          position: 'bottom-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
         console.log('logged in ', result.user);
         navigate(location.state ?? '/');
       })
@@ -111,6 +121,7 @@ const Login = () => {
 
           <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/5"></span>
         </div>
+        {/* <ToastContainer /> */}
 
         <SocialLogin />
 
@@ -121,7 +132,6 @@ const Login = () => {
           </Link>
         </p>
       </div>
-      <ToastContainer />
     </div>
   );
 };

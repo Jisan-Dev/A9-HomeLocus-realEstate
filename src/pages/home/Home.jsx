@@ -82,7 +82,7 @@ const Home = () => {
           </div>
         </SwiperSlide>
       </Swiper>
-
+      {/* <ToastContainer /> */}
       <section id="properties" className="mt-32">
         <header className="font-kufam flex flex-col items-center justify-center mb-5">
           <p className="text-neutral-700 text-base lg:text-lg font-semibold uppercase tracking-[6px] mb-3">| Featured properties |</p>

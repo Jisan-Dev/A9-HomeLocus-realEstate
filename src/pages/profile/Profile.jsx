@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { AuthContext } from '../../providers/AuthProvider';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const schema = z.object({
@@ -61,7 +61,7 @@ const Profile = () => {
             />
             {errors.name && <div className="text-red-500 text-xs">{errors.name.message}</div>}
           </div>
-
+          {/* <ToastContainer /> */}
           <div className="mt-4">
             <label htmlFor="photo" className="block text-sm text-gray-800 dark:text-gray-200">
               Photo URL
@@ -79,7 +79,6 @@ const Profile = () => {
             <button className="w-full px-6 py-2.5 text-base font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
               Submit
             </button>
-            <ToastContainer />
           </div>
         </form>
       </div>

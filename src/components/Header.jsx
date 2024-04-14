@@ -1,26 +1,29 @@
 import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Header = () => {
   const [clicked, setClicked] = useState(false);
-  const { user, logoutUser } = useContext(AuthContext);
+  const { user, logoutUser, setIsUserUpdated, isUserUpdated } = useContext(AuthContext);
 
-  const userLogout = () => {
-    logoutUser().then(() => {
-      toast.success('successfully logged out', {
-        position: 'bottom-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'dark',
-      });
-    });
+  const userLogout = async () => {
+    await logoutUser()
+      .then(() => {
+        toast.success('successfully logged out', {
+          position: 'bottom-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
+        setIsUserUpdated(!isUserUpdated);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -84,7 +87,6 @@ const Header = () => {
               <button onClick={userLogout} className="btn btn-neutral lg:px-6 font-bold lg:text-lg">
                 Sign Out
               </button>
-              <ToastContainer />
             </>
           ) : (
             <Link to="/login" className="btn btn-neutral lg:px-6 font-bold lg:text-lg">
@@ -93,7 +95,6 @@ const Header = () => {
           )}
         </div>
       </div>
-      <ToastContainer />
     </header>
   );
 };

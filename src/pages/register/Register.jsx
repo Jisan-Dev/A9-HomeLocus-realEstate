@@ -7,6 +7,7 @@ import { z } from 'zod';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../providers/AuthProvider';
 import SocialLogin from '../../components/SocialLogin';
+import { toast } from 'react-toastify';
 
 const schema = z.object({
   name: z.string().min(2).max(50).nonempty(),
@@ -41,6 +42,17 @@ const Register = () => {
             console.log('profile updated', result.user);
             setIsUserUpdated(!isUserUpdated);
             reset();
+            toast.success('Successfully registered', {
+              position: 'bottom-right',
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: 'dark',
+            });
+
             navigate('/');
           });
         }
