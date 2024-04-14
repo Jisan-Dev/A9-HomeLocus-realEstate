@@ -3,10 +3,11 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loading from './Loading';
 
 const Header = () => {
   const [clicked, setClicked] = useState(false);
-  const { user, logoutUser, setIsUserUpdated, isUserUpdated } = useContext(AuthContext);
+  const { user, logoutUser, setIsUserUpdated, isUserUpdated, loading } = useContext(AuthContext);
 
   const userLogout = async () => {
     await logoutUser()
@@ -74,6 +75,7 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
+          {loading && <span className="loading loading-infinity loading-lg mr-4"></span>}
           {user ? (
             <>
               <div className="tooltip tooltip-left cursor-pointer -mb-1" data-tip={user.displayName}>
