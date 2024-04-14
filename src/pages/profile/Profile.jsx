@@ -30,6 +30,16 @@ const Profile = () => {
         console.log('auth-current', auth.currentUser);
       })
       .catch((error) => {
+        toast.error('email needs to be verified to change', {
+          position: 'bottom-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
         console.error(error);
       });
 
