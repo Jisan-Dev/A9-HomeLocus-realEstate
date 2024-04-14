@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { AuthContext } from '../../providers/AuthProvider';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet-async';
 
 const schema = z.object({
   name: z.string().min(2).max(50).nonempty(),
@@ -42,6 +43,9 @@ const Profile = () => {
 
   return (
     <div className="bg-slate-100 min-h-[calc(100vh-72px)] flex items-center justify-center font-kufam">
+      <Helmet>
+        <title>HomeLocus | Profile</title>
+      </Helmet>
       <div className="w-md p-6 bg-white">
         <div className="flex justify-center items-center mx-auto">
           <h1 className="text-2xl sm:text-3xl text-transparent bg-gradient-to-br from-slate-950 via-slate-600 to-slate-950 bg-clip-text font-black font-kufam mb-4">
