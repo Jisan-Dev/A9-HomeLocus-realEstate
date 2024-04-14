@@ -12,12 +12,16 @@ import { Link } from 'react-router-dom';
 import './home.css';
 import { useLoaderData } from 'react-router-dom';
 import PropertyCard from '../../components/PropertyCard';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
   const properties = useLoaderData();
 
   return (
     <div className="w-full container mx-auto overflow-hidden relative pb-32">
+      <Helmet>
+        <title>Homelocus | Homepage</title>
+      </Helmet>
       <Swiper
         autoplay={{
           delay: 3000,

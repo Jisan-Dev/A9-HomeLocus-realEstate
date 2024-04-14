@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { TbHomeCheck } from 'react-icons/tb';
+import { Helmet } from 'react-helmet-async';
 
 const PropertyDetails = () => {
   const { id: paramId } = useParams();
@@ -13,6 +14,9 @@ const PropertyDetails = () => {
 
   return (
     <div className="flex max-sm:flex-col container mx-auto gap-8 pb-10 w-full max-sm:px-4">
+      <Helmet>
+        <title>Homelocus | Details : {paramId}</title>
+      </Helmet>
       <div className="w-1/2 max-sm:w-full rounded-lg overflow-hidden">
         <img src={property.image} className="h-full object-cover" />
       </div>
