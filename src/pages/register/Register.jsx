@@ -43,7 +43,7 @@ const Register = () => {
             setIsUserUpdated(!isUserUpdated);
             reset();
             toast.success('Successfully registered', {
-              position: 'bottom-right',
+              position: 'top-right',
               autoClose: 5000,
               hideProgressBar: false,
               closeOnClick: true,
@@ -62,11 +62,11 @@ const Register = () => {
       });
   };
   return (
-    <div data-aos="fade-zoom-in" data-aos-duration="1000" className="bg-gray-100 flex items-center justify-center font-kufam py-14">
+    <div data-aos="fade-zoom-in" data-aos-duration="1000" className="bg-gray-100 flex items-center justify-center font-kufam py-14 max-sm:px-3 max-sm:py-5">
       <Helmet>
         <title>HomeLocus | Register</title>
       </Helmet>
-      <div className="w-full max-w-md p-6 m-auto mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800">
+      <div className="w-full max-w-md p-6 m-auto mx-auto bg-white rounded-xl shadow-md dark:bg-gray-800">
         <div className="flex justify-center items-center mx-auto">
           <h1 className="text-2xl sm:text-3xl text-transparent bg-gradient-to-br from-slate-950 via-slate-600 to-slate-950 bg-clip-text font-black font-kufam">REGISTER</h1>
         </div>

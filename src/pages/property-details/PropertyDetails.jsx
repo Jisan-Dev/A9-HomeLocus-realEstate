@@ -19,7 +19,7 @@ const PropertyDetails = () => {
     // const storedProperties = setStoredProperties(property.id)
     if (storedProperties.includes(property.id)) {
       toast.error('Already in wishlist', {
-        position: 'bottom-right',
+        position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -30,7 +30,7 @@ const PropertyDetails = () => {
       });
     } else {
       toast.success('Added to wishlist', {
-        position: 'bottom-right',
+        position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,

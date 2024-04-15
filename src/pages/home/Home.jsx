@@ -40,10 +40,10 @@ const Home = () => {
               Search for a comfortable place to live with your new family and your child. Increase the harmony of your family and wife to be at home.
             </p>
             <div className="flex gap-4 mt-8">
-              <Link to="/register" className="btn font-bold hover:bg-transparent hover:text-white sm:text-lg">
+              <Link to="/register" className="btn font-bold hover:bg-transparent hover:text-white text-lg">
                 Get Started
               </Link>
-              <a href="#properties" className="btn btn-outline hover:bg-white hover:text-slate-800 text-white font-bold sm:text-lg">
+              <a href="#properties" className="btn btn-outline hover:bg-white hover:text-slate-800 text-white font-bold text-lg">
                 Explore
               </a>
             </div>
@@ -87,7 +87,7 @@ const Home = () => {
         </SwiperSlide>
       </Swiper>
 
-      <section id="properties" className="mt-32">
+      <section id="properties" className="mt-32 max-sm:mt-20">
         <header data-aos="fade-zoom-in" data-aos-duration="600" className="font-kufam flex flex-col items-center justify-center mb-5">
           <p className="text-neutral-700 text-base lg:text-lg font-semibold uppercase tracking-[6px] mb-3">| Featured Properties |</p>
           <h2 className="max-w-[690px] text-center text-neutral-950 leading-none text-3xl max-sm:px-2 sm:text-[50px] font-bold">

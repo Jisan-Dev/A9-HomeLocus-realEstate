@@ -51,17 +51,26 @@ const Login = () => {
         navigate(location.state ?? '/');
       })
       .catch((error) => {
-        toast.error('Invalid credentials');
+        toast.error('Invalid credentials', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
         console.error(error);
       });
   };
 
   return (
-    <div data-aos="fade-zoom-in" data-aos-duration="1000" className="bg-slate-100 min-h-[calc(100vh-72px)] flex items-center justify-center font-kufam">
+    <div data-aos="fade-zoom-in" data-aos-duration="1000" className="bg-slate-100 sm:min-h-[calc(100vh-72px)] max-sm:px-3 max-sm:py-5 flex items-center justify-center font-kufam">
       <Helmet>
         <title>HomeLocus | Login</title>
       </Helmet>
-      <div className="w-full max-w-md p-6 m-auto mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800">
+      <div className="w-full max-w-md p-6 m-auto mx-auto bg-white rounded-xl shadow-md dark:bg-gray-800">
         <div className="flex justify-center items-center mx-auto">
           <h1 className="text-2xl sm:text-3xl text-transparent bg-gradient-to-br from-slate-950 via-slate-600 to-slate-950 bg-clip-text font-black font-kufam">LOGIN</h1>
         </div>

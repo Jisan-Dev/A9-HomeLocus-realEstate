@@ -31,7 +31,7 @@ const Profile = () => {
       })
       .catch((error) => {
         toast.error('email needs to be verified to change', {
-          position: 'bottom-right',
+          position: 'top-right',
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,

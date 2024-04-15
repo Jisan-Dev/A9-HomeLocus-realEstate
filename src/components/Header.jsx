@@ -13,7 +13,7 @@ const Header = () => {
     await logoutUser()
       .then(() => {
         toast.success('successfully logged out', {
-          position: 'bottom-right',
+          position: 'top-right',
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
