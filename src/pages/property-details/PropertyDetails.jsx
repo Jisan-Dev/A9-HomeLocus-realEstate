@@ -2,6 +2,8 @@ import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { TbHomeCheck } from 'react-icons/tb';
 import { Helmet } from 'react-helmet-async';
+import { getStoredProperties, setStoredProperties } from '../../utils/localstorage';
+import { toast } from 'react-toastify';
 
 const PropertyDetails = () => {
   const { id: paramId } = useParams();
@@ -11,6 +13,35 @@ const PropertyDetails = () => {
   const property = properties.find((property) => property.id === Number(paramId));
 
   console.log(property);
+
+  const wishlistHandler = () => {
+    const storedProperties = getStoredProperties();
+    // const storedProperties = setStoredProperties(property.id)
+    if (storedProperties.includes(property.id)) {
+      toast.error('Already in wishlist', {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
+    } else {
+      toast.success('Added to wishlist', {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
+      setStoredProperties(property.id);
+    }
+  };
 
   return (
     <div className="flex max-sm:flex-col container mx-auto gap-8 pb-10 w-full max-sm:px-4">
@@ -27,15 +58,15 @@ const PropertyDetails = () => {
           <h3 className="text-neutral-900 text-opacity-80 text-2xl font-semibold"> {property.price} </h3>
           <span className="text-sm bg-gray-800 bg-opacity-20 text-neutral-700 rounded-md py-2 px-4 capitalize font-bold font-source">On {property.status}</span>
         </div>
-        <p className="text-neutral-900 text-opacity-80 text-base sm:text-lg font-medium mb-8 font-source"> {property.description} </p>
+        <p className="text-neutral-900 text-opacity-80 text-base sm:text-lg font-medium mb-4 font-source"> {property.description} </p>
         <p className="text-neutral-900 text-opacity-70 text-base md:text-xl font-semibold mb-2 font-source">
-          <strong className="text-neutral-900 font-bold mr-1">Area : </strong> {property.area}
+          <strong className="text-neutral-900 text-[18px] font-bold mr-1">Area : </strong> {property.area}
         </p>
         <p className="text-neutral-900 text-opacity-70 text-base md:text-xl font-semibold font-source">
-          <strong className="text-neutral-900 font-bold mr-1">Location : </strong> {property.location}
+          <strong className="text-neutral-900 text-[18px] font-bold mr-1">Location : </strong> {property.location}
         </p>
-        <div className="mt-8 flex items-center gap-3 text-xs flex-wrap font-source">
-          <strong className="text-neutral-900 text-base md:text-xl font-bold mr-1">Facilities : </strong>
+        <div className="mt-5 flex items-center gap-3 text-xs flex-wrap font-source">
+          <strong className="text-neutral-900 text-[18px] font-bold mr-1">Facilities : </strong>
           {property.facilities.map((facility, index) => (
             <div key={index} className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2 badge badge-ghost py-4 px-6">
               <TbHomeCheck />
@@ -45,6 +76,11 @@ const PropertyDetails = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="mt-7">
+          <button onClick={wishlistHandler} to="/login" className="btn btn-neutral lg:px-6 font-bold text-base font-kufam">
+            Add to wishlist
+          </button>
         </div>
       </div>
     </div>
