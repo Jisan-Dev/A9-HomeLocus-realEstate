@@ -18,7 +18,7 @@ const Home = () => {
   const properties = useLoaderData();
 
   return (
-    <div className="w-full container mx-auto overflow-hidden relative pb-32">
+    <div className="w-full container mx-auto overflow-hidden relative pb-32 max-sm:px-3">
       <Helmet>
         <title>Homelocus | Homepage</title>
       </Helmet>

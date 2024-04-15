@@ -21,7 +21,7 @@ const Wishlist = () => {
   };
 
   return (
-    <section className="py-10">
+    <section className="py-10 container mx-auto">
       <Helmet>
         <title>Homelocus | Wishlist</title>
       </Helmet>
@@ -29,7 +29,7 @@ const Wishlist = () => {
         <p className="text-neutral-700 text-base lg:text-lg font-semibold uppercase tracking-[6px] mb-3">| Wishlist Properties |</p>
         <h2 className="max-w-[690px] text-center text-neutral-950 leading-none text-3xl max-sm:px-2 sm:text-[50px] font-bold">Properties for sale & rent in your favorite area</h2>
       </header>
-      <main className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
+      <main className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 max-sm:px-4">
         {properties.map((property) => (
           <PropertyCard key={property.id} property={property} isDelete={true} deleteFunc={deleteFunc} />
         ))}
