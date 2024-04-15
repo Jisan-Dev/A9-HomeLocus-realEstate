@@ -8,7 +8,7 @@ const PropertyCard = ({ property, isDelete = false, deleteFunc, index }) => {
   const { estate_title, price, status, image, location, facilities, id } = property;
   return (
     <div data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-delay={index * 100} data-aos-duration="1000">
-      <div className="block rounded-lg p-4 shadow-md shadow-gray-300">
+      <div className="block rounded-lg p-4 shadow-md shadow-gray-300 font-kufam">
         <img alt="" src={image} className="h-56 w-full rounded-md object-cover" />
 
         <div className="mt-2">
@@ -16,7 +16,7 @@ const PropertyCard = ({ property, isDelete = false, deleteFunc, index }) => {
             <div className="flex items-center justify-between pt-1">
               <div>
                 <dt className="sr-only">Price</dt>
-                <dd className="text-lg text-gray-500 font-medium">{price}</dd>
+                <dd className="text-base text-gray-500 font-medium">{price}</dd>
               </div>
               <div>
                 <dt className="sr-only">Status</dt>
@@ -28,12 +28,12 @@ const PropertyCard = ({ property, isDelete = false, deleteFunc, index }) => {
 
             <div className="mt-2">
               <dt className="sr-only">Title</dt>
-              <dd className="text-xl font-medium">{estate_title}</dd>
+              <dd className="text-lg font-bold">{estate_title}</dd>
             </div>
 
             <div>
               <dt className="sr-only">Location</dt>
-              <dd className="text-neutral-500 text-base font-normal flex items-center gap-1">
+              <dd className="text-neutral-500 text-sm font-medium flex items-center gap-1">
                 <span>
                   <IoLocation />
                 </span>
@@ -42,9 +42,9 @@ const PropertyCard = ({ property, isDelete = false, deleteFunc, index }) => {
             </div>
           </dl>
 
-          <div className="mt-6 flex items-center gap-3 text-xs flex-wrap">
+          <div className="mt-6 flex items-center gap-3 text-xs flex-wrap font-source">
             {facilities.map((facility, index) => (
-              <div key={index} className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2 badge badge-ghost">
+              <div key={index} className="sm:inline-flex sm:shrink-0 sm:items-center gap-2 badge badge-ghost">
                 <TbHomeCheck />
 
                 <div className="mt-1.5 sm:mt-0 ">
