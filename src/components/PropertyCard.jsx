@@ -44,10 +44,10 @@ const PropertyCard = ({ property, isDelete = false, deleteFunc, index }) => {
 
           <div className="mt-6 flex items-center gap-3 text-xs flex-wrap font-source">
             {facilities.map((facility, index) => (
-              <div key={index} className="sm:inline-flex sm:shrink-0 sm:items-center gap-2 badge badge-ghost">
+              <div key={index} className="inline-flex shrink-0 items-center gap-2 badge badge-ghost">
                 <TbHomeCheck />
 
-                <div className="mt-1.5 sm:mt-0 ">
+                <div>
                   <p className="font-medium">{facility}</p>
                 </div>
               </div>
