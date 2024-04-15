@@ -57,7 +57,7 @@ const PropertyCard = ({ property, isDelete = false, deleteFunc, index }) => {
             <button className="group flex items-center bg-transparent p-2 text-sm font-medium text-gray-600 mt-1">
               <Link
                 to={`/property-details/${id}`}
-                className="relative pr-4 pb-1 text-gray-900 after:transition-transform after:duration-500 after:ease-out after:absolute after:bottom-0 after:left-0 after:block after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-slate-500 after:content-[''] after:group-hover:origin-bottom-left after:group-hover:scale-x-100">
+                className="relative pr-4 text-gray-900 font-semibold after:transition-transform after:duration-500 after:ease-out after:absolute after:-bottom-1 after:-left-1 after:block after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-slate-500 after:content-[''] after:group-hover:origin-bottom-left after:group-hover:scale-x-100 ">
                 View Property
               </Link>
               <svg
