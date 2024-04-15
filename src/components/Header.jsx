@@ -42,13 +42,10 @@ const Header = () => {
                 <li>
                   <NavLink to="/">Home</NavLink>
                 </li>
-                <li>
-                  <NavLink to="/about">About</NavLink>
-                </li>
                 {user && (
                   <>
                     <li className="hover:text-neutral-900">
-                      <NavLink to="/profile">Profile</NavLink>
+                      <NavLink to="/profile">Update Profile</NavLink>
                     </li>
                     <li className="hover:text-neutral-900">
                       <NavLink to="/wishlist">Wishlist</NavLink>
@@ -69,13 +66,10 @@ const Header = () => {
             <li className="hover:text-neutral-900">
               <NavLink to="/">Home</NavLink>
             </li>
-            <li className="hover:text-neutral-900">
-              <NavLink to="/about">About</NavLink>
-            </li>
             {user && (
               <>
                 <li className="hover:text-neutral-900">
-                  <NavLink to="/profile">Profile</NavLink>
+                  <NavLink to="/profile">Update Profile</NavLink>
                 </li>
                 <li className="hover:text-neutral-900">
                   <NavLink to="/wishlist">Wishlist</NavLink>
