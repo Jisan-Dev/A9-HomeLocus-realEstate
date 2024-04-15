@@ -48,9 +48,9 @@ const router = createBrowserRouter([
       {
         path: '/wishlist',
         element: (
-          // <PrivateRoute>
-          <Wishlist />
-          // </PrivateRoute>
+          <PrivateRoute>
+            <Wishlist />
+          </PrivateRoute>
         ),
         loader: () => fetch('/properties.json'),
       },
