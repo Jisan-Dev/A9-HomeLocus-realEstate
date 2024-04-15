@@ -48,10 +48,10 @@ const PropertyDetails = () => {
       <Helmet>
         <title>Homelocus | Details : {paramId}</title>
       </Helmet>
-      <div className="w-1/2 max-sm:w-full rounded-lg overflow-hidden">
+      <div data-aos="fade-right" data-aos-duration="1000" className="w-1/2 max-sm:w-full rounded-lg overflow-hidden">
         <img src={property.image} className="h-full object-cover" />
       </div>
-      <div className="w-1/2 max-sm:w-full flex flex-col justify-center">
+      <div data-aos="fade-left" data-aos-duration="1000" className="w-1/2 max-sm:w-full flex flex-col justify-center">
         <h2 className="text-neutral-900 text-opacity-80 text-lg font-medium mb-1 font-kufam">{property.segment_name}</h2>
         <h1 className="text-neutral-900 text-3xl md:text-4xl font-bold mb-4 font-kufam">{property.estate_title}</h1>
         <div className="flex gap-6 items-center font-kufam mb-5">

@@ -62,7 +62,7 @@ const Register = () => {
       });
   };
   return (
-    <div className="bg-gray-100 flex items-center justify-center font-kufam py-14">
+    <div data-aos="fade-zoom-in" data-aos-duration="1000" className="bg-gray-100 flex items-center justify-center font-kufam py-14">
       <Helmet>
         <title>HomeLocus | Register</title>
       </Helmet>

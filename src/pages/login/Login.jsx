@@ -57,7 +57,7 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-slate-100 min-h-[calc(100vh-72px)] flex items-center justify-center font-kufam">
+    <div data-aos="fade-zoom-in" data-aos-duration="1000" className="bg-slate-100 min-h-[calc(100vh-72px)] flex items-center justify-center font-kufam">
       <Helmet>
         <title>HomeLocus | Login</title>
       </Helmet>

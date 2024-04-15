@@ -4,10 +4,10 @@ import { TbHomeCheck } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 import { MdDelete } from 'react-icons/md';
 
-const PropertyCard = ({ property, isDelete = false, deleteFunc }) => {
+const PropertyCard = ({ property, isDelete = false, deleteFunc, index }) => {
   const { estate_title, price, status, image, location, facilities, id } = property;
   return (
-    <div>
+    <div data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-delay={index * 100} data-aos-duration="1000">
       <div className="block rounded-lg p-4 shadow-md shadow-gray-300">
         <img alt="" src={image} className="h-56 w-full rounded-md object-cover" />
 
@@ -89,4 +89,5 @@ PropertyCard.propTypes = {
   property: PropTypes.object.isRequired,
   isDelete: PropTypes.bool,
   deleteFunc: PropTypes.func,
+  index: PropTypes.number,
 };
