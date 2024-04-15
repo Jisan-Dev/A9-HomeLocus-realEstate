@@ -2,8 +2,9 @@ import PropTypes from 'prop-types';
 import { IoLocation } from 'react-icons/io5';
 import { TbHomeCheck } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
+import { MdDelete } from 'react-icons/md';
 
-const PropertyCard = ({ property }) => {
+const PropertyCard = ({ property, isDelete = false, deleteFunc }) => {
   const { estate_title, price, status, image, location, facilities, id } = property;
   return (
     <div>
@@ -52,7 +53,7 @@ const PropertyCard = ({ property }) => {
               </div>
             ))}
           </div>
-          <div className="flex justify-end">
+          <div className={`flex ${isDelete ? 'justify-between items-center' : 'justify-end'} `}>
             <button className="group flex items-center bg-transparent p-2 text-sm font-medium text-gray-600 mt-1">
               <Link
                 to={`/property-details/${id}`}
@@ -69,6 +70,12 @@ const PropertyCard = ({ property }) => {
                 <path transform="translate(30)" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" data-name="Path 10" id="Path_10"></path>
               </svg>
             </button>
+
+            {isDelete && (
+              <div className="tooltip tooltip-left" data-tip="remove">
+                <MdDelete onClick={() => deleteFunc(id)} className="text-xl cursor-pointer" />
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -80,4 +87,6 @@ export default PropertyCard;
 
 PropertyCard.propTypes = {
   property: PropTypes.object.isRequired,
+  isDelete: PropTypes.bool,
+  deleteFunc: PropTypes.func,
 };

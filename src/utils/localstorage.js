@@ -17,4 +17,10 @@ const setStoredProperties = (id) => {
   }
 };
 
-export { getStoredProperties, setStoredProperties };
+const deleteFromStoredProperties = (id) => {
+  const storedProperties = getStoredProperties();
+  const newArr = storedProperties.filter((property) => property !== id);
+  localStorage.setItem('properties', JSON.stringify(newArr));
+};
+
+export { getStoredProperties, setStoredProperties, deleteFromStoredProperties };

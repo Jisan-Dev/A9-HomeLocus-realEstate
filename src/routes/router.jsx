@@ -7,6 +7,7 @@ import ErrorPage from '../pages/error-page';
 import PropertyDetails from '../pages/property-details/PropertyDetails';
 import PrivateRoute from './PrivateRoute';
 import Profile from '../pages/profile/Profile';
+import Wishlist from '../pages/wishlist/Wishlist';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,15 @@ const router = createBrowserRouter([
           <PrivateRoute>
             <PropertyDetails />
           </PrivateRoute>
+        ),
+        loader: () => fetch('/properties.json'),
+      },
+      {
+        path: '/wishlist',
+        element: (
+          // <PrivateRoute>
+          <Wishlist />
+          // </PrivateRoute>
         ),
         loader: () => fetch('/properties.json'),
       },
