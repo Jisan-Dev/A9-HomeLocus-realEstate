@@ -40,10 +40,10 @@ const Home = () => {
               Search for a comfortable place to live with your new family and your child. Increase the harmony of your family and wife to be at home.
             </p>
             <div className="flex gap-4 mt-8">
-              <Link to="/register" className="btn font-bold hover:bg-transparent hover:text-white text-lg">
+              <Link to="/register" className="btn font-bold hover:bg-transparent hover:text-white sm:text-lg">
                 Get Started
               </Link>
-              <a href="#properties" className="btn btn-outline hover:bg-white hover:text-slate-800 text-white font-bold text-lg">
+              <a href="#properties" className="btn btn-outline hover:bg-white hover:text-slate-800 text-white font-bold sm:text-lg">
                 Explore
               </a>
             </div>
