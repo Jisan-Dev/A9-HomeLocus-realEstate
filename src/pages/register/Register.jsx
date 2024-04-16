@@ -60,7 +60,7 @@ const Register = () => {
       .catch((error) => {
         toast.error(error.code, {
           position: 'top-right',
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -72,7 +72,7 @@ const Register = () => {
       });
   };
   return (
-    <div data-aos="fade-zoom-in" data-aos-duration="1000" className="bg-gray-100 flex items-center justify-center font-kufam py-14 max-sm:px-3 max-sm:py-5">
+    <div data-aos="fade-zoom-in" data-aos-duration="700" className="bg-gray-100 flex items-center justify-center font-kufam py-14 max-sm:px-3 max-sm:py-5">
       <Helmet>
         <title>HomeLocus | Register</title>
       </Helmet>

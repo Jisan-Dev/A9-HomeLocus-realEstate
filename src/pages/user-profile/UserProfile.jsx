@@ -1,18 +1,24 @@
 import React, { useContext } from 'react';
 import image from '../../assets/undraw_People_re_8spw.png';
 import { AuthContext } from '../../providers/AuthProvider';
+import defaultPlaceholder from '../../assets/Default_Placeholder.webp';
 
 const UserProfile = () => {
   const { user } = useContext(AuthContext);
   return (
-    <div className="flex flex-col lg:flex-row gap-6 container mx-auto min-h-[calc(100vh-172px)] items-center justify-center ">
+    <div data-aos="fade-zoom-in" data-aos-duration="700" className="flex flex-col lg:flex-row gap-6 container mx-auto min-h-[calc(100vh-172px)] items-center justify-center ">
       <div className="w-1/2 max-lg:w-full  px-6 sm:px-20 py-6 sm:pt-10">
         <div className="w-24 h-24 rounded-lg overflow-hidden">
-          <img src={user.photoURL || 'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'} referrerPolicy="no-referrer" />
+          <img src={user.photoURL || defaultPlaceholder} referrerPolicy="no-referrer" />
         </div>
         <h1 className="font-kufam text-3xl font-bold mt-6">{user?.displayName}</h1>
         <p className="font-kufam text-xl font-semibold mt-3">
-          <strong>Email: </strong> {user?.email}
+          <strong>Email: </strong>
+          {user?.email ?? (
+            <small>
+              <i>Not found</i>
+            </small>
+          )}
         </p>
         <p className="font-kufam text-xl font-semibold mt-3">
           <strong>Phone Number:</strong>{' '}

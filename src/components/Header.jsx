@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Loading from './Loading';
+import defaultPlaceholder from '../assets/Default_Placeholder.webp';
 
 const Header = () => {
   const [clicked, setClicked] = useState(false);
@@ -14,7 +14,7 @@ const Header = () => {
       .then(() => {
         toast.success('successfully logged out', {
           position: 'top-right',
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -66,18 +66,16 @@ const Header = () => {
             <li className="hover:text-neutral-900">
               <NavLink to="/">Home</NavLink>
             </li>
+            <li className="hover:text-neutral-900">
+              <NavLink to="/update-profile">Update Profile</NavLink>
+            </li>
+            <li className="hover:text-neutral-900">
+              <NavLink to="/wishlist">Wishlist</NavLink>
+            </li>
             {user && (
-              <>
-                <li className="hover:text-neutral-900">
-                  <NavLink to="/profile">Update Profile</NavLink>
-                </li>
-                <li className="hover:text-neutral-900">
-                  <NavLink to="/user-profile">User Profile</NavLink>
-                </li>
-                <li className="hover:text-neutral-900">
-                  <NavLink to="/wishlist">Wishlist</NavLink>
-                </li>
-              </>
+              <li className="hover:text-neutral-900">
+                <NavLink to="/user-profile">User Profile</NavLink>
+              </li>
             )}
           </ul>
         </div>
@@ -88,7 +86,7 @@ const Header = () => {
               <div className="tooltip tooltip-left cursor-pointer -mb-1" data-tip={user.displayName}>
                 <div className="avatar">
                   <div className="w-12 rounded-full mr-2">
-                    <img src={user.photoURL || 'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'} referrerPolicy="no-referrer" />
+                    <img src={user.photoURL || defaultPlaceholder} referrerPolicy="no-referrer" />
                   </div>
                 </div>
               </div>

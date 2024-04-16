@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { AuthContext } from '../../providers/AuthProvider';
 import { zodResolver } from '@hookform/resolvers/zod';
 import SocialLogin from '../../components/SocialLogin';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const schema = z.object({
@@ -22,7 +22,7 @@ const schema = z.object({
 
 const Login = () => {
   const [isPassVisible, setIsPassVisible] = useState(false);
-  const { loginUser, loading } = useContext(AuthContext);
+  const { loginUser } = useContext(AuthContext);
   const location = useLocation();
 
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ const Login = () => {
       .then((result) => {
         toast.success('successfully logged in', {
           position: 'bottom-right',
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -66,7 +66,7 @@ const Login = () => {
   };
 
   return (
-    <div data-aos="fade-zoom-in" data-aos-duration="1000" className="bg-slate-100 sm:min-h-[calc(100vh-72px)] max-sm:px-3 max-sm:py-5 flex items-center justify-center font-kufam">
+    <div data-aos="fade-zoom-in" data-aos-duration="700" className="bg-slate-100 sm:min-h-[calc(100vh-72px)] max-sm:px-3 max-sm:py-5 flex items-center justify-center font-kufam">
       <Helmet>
         <title>HomeLocus | Login</title>
       </Helmet>

@@ -11,11 +11,11 @@ import auth from '../../firebase/firebase.config';
 
 const schema = z.object({
   name: z.string().min(2).max(50).nonempty(),
-  photo: z.string().url(),
+  photo: z.string().optional(),
   email: z.string().email(),
 });
 
-const Profile = () => {
+const UpdateProfile = () => {
   const { user, handleUpdateProfile, setIsUserUpdated, isUserUpdated } = useContext(AuthContext);
 
   const {
@@ -32,7 +32,7 @@ const Profile = () => {
       .catch((error) => {
         toast.error('email needs to be verified to change', {
           position: 'top-right',
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -49,8 +49,8 @@ const Profile = () => {
         // window.location.reload(); //we could do this as well to immediately change the profile name and img on the navbar UI.
 
         toast.success('🦄 Profile Updated!', {
-          position: 'bottom-right',
-          autoClose: 5000,
+          position: 'top-right',
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -63,7 +63,7 @@ const Profile = () => {
   };
 
   return (
-    <div data-aos="fade-zoom-in" data-aos-duration="1000" className="bg-slate-100 min-h-[calc(100vh-72px)] flex items-center justify-center font-kufam">
+    <div data-aos="fade-zoom-in" data-aos-duration="700" className="bg-slate-100 min-h-[calc(100vh-72px)] flex items-center justify-center font-kufam">
       <Helmet>
         <title>HomeLocus | Update Profile</title>
       </Helmet>
@@ -124,4 +124,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default UpdateProfile;

@@ -16,7 +16,7 @@ const SocialLogin = () => {
           console.log('logged in with social: ', result.user);
           toast.success('successfully logged in', {
             position: 'top-right',
-            autoClose: 5000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -28,7 +28,19 @@ const SocialLogin = () => {
           navigate(location.state ?? '/');
         }
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        toast.error(error.code, {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
+        console.error(error);
+      });
   };
 
   return (

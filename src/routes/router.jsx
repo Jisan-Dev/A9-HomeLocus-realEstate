@@ -6,7 +6,7 @@ import Register from '../pages/register/Register';
 import ErrorPage from '../pages/error-page';
 import PropertyDetails from '../pages/property-details/PropertyDetails';
 import PrivateRoute from './PrivateRoute';
-import Profile from '../pages/profile/Profile';
+import UpdateProfile from '../pages/update-profile/UpdateProfile';
 import Wishlist from '../pages/wishlist/Wishlist';
 import UserProfile from '../pages/user-profile/UserProfile';
 
@@ -30,10 +30,10 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: '/profile',
+        path: '/update-profile',
         element: (
           <PrivateRoute>
-            <Profile />
+            <UpdateProfile />
           </PrivateRoute>
         ),
       },
