@@ -39,18 +39,19 @@ const Header = () => {
             </div>
             {clicked && (
               <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-20 p-2 shadow bg-base-100 rounded-box w-52 text-neutral-600 font-bold">
-                <li>
+                <li className="hover:text-neutral-900">
                   <NavLink to="/">Home</NavLink>
                 </li>
+                <li className="hover:text-neutral-900">
+                  <NavLink to="/update-profile">Update Profile</NavLink>
+                </li>
+                <li className="hover:text-neutral-900">
+                  <NavLink to="/wishlist">Wishlist</NavLink>
+                </li>
                 {user && (
-                  <>
-                    <li className="hover:text-neutral-900">
-                      <NavLink to="/profile">Update Profile</NavLink>
-                    </li>
-                    <li className="hover:text-neutral-900">
-                      <NavLink to="/wishlist">Wishlist</NavLink>
-                    </li>
-                  </>
+                  <li className="hover:text-neutral-900">
+                    <NavLink to="/user-profile">User Profile</NavLink>
+                  </li>
                 )}
               </ul>
             )}
