@@ -72,6 +72,9 @@ const Header = () => {
                   <NavLink to="/profile">Update Profile</NavLink>
                 </li>
                 <li className="hover:text-neutral-900">
+                  <NavLink to="/user-profile">User Profile</NavLink>
+                </li>
+                <li className="hover:text-neutral-900">
                   <NavLink to="/wishlist">Wishlist</NavLink>
                 </li>
               </>

@@ -8,6 +8,7 @@ import PropertyDetails from '../pages/property-details/PropertyDetails';
 import PrivateRoute from './PrivateRoute';
 import Profile from '../pages/profile/Profile';
 import Wishlist from '../pages/wishlist/Wishlist';
+import UserProfile from '../pages/user-profile/UserProfile';
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,14 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () => fetch('/properties.json'),
+      },
+      {
+        path: '/user-profile',
+        element: (
+          <PrivateRoute>
+            <UserProfile />
+          </PrivateRoute>
+        ),
       },
     ],
   },
