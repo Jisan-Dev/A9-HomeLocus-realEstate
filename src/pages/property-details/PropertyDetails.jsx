@@ -44,7 +44,7 @@ const PropertyDetails = () => {
   };
 
   return (
-    <div className="flex max-sm:flex-col container mx-auto gap-8 pb-10 w-full max-sm:px-4">
+    <div className="flex max-sm:flex-col container mx-auto gap-8 pb-10 w-full max-sm:px-4 overflow-x-hidden">
       <Helmet>
         <title>Homelocus | Details : {paramId}</title>
       </Helmet>

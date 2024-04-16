@@ -64,7 +64,7 @@ const UpdateProfile = () => {
   };
 
   return (
-    <div className="container mx-auto min-h-[calc(100vh-72px)] flex items-center justify-center max-sm:flex-col font-kufam">
+    <div className="container mx-auto min-h-[calc(100vh-72px)] flex items-center justify-center max-sm:flex-col font-kufam overflow-x-hidden">
       <Helmet>
         <title>HomeLocus | Update Profile</title>
       </Helmet>

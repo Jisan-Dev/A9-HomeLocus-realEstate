@@ -73,7 +73,7 @@ const Register = () => {
       });
   };
   return (
-    <div className="container mx-auto flex items-center justify-center font-kufam max-sm:px-3 pb-14 max-sm:py-5 max-sm:flex-col">
+    <div className="container mx-auto flex items-center justify-center font-kufam max-sm:px-3 pb-14 max-sm:py-5 max-sm:flex-col overflow-x-hidden">
       <Helmet>
         <title>HomeLocus | Register</title>
       </Helmet>

@@ -67,7 +67,7 @@ const Login = () => {
   };
 
   return (
-    <div className="sm:min-h-[calc(100vh-72px)] max-sm:px-3 max-sm:py-5 flex items-center justify-center max-sm:flex-col font-kufam">
+    <div className="sm:min-h-[calc(100vh-72px)] max-sm:px-3 max-sm:py-5 flex items-center justify-center max-sm:flex-col font-kufam overflow-x-hidden">
       <Helmet>
         <title>HomeLocus | Login</title>
       </Helmet>

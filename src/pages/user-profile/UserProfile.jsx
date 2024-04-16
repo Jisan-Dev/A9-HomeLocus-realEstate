@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet-async';
 const UserProfile = () => {
   const { user } = useContext(AuthContext);
   return (
-    <div className="flex flex-col lg:flex-row gap-6 container mx-auto min-h-[calc(100vh-172px)] items-center justify-center ">
+    <div className="flex flex-col lg:flex-row gap-6 container mx-auto min-h-[calc(100vh-172px)] items-center justify-center overflow-x-hidden">
       <Helmet>
         <title>Homelocus | User Profile</title>
       </Helmet>
