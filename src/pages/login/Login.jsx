@@ -51,7 +51,7 @@ const Login = () => {
         navigate(location.state ?? '/');
       })
       .catch((error) => {
-        toast.error('Invalid credentials', {
+        toast.error(error.code, {
           position: 'top-right',
           autoClose: 5000,
           hideProgressBar: false,

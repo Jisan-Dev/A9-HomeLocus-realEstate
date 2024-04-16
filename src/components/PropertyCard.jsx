@@ -73,7 +73,7 @@ const PropertyCard = ({ property, isDelete = false, deleteFunc, index }) => {
 
             {isDelete && (
               <div className="tooltip tooltip-left" data-tip="remove">
-                <MdDelete onClick={() => deleteFunc(id)} className="text-xl cursor-pointer" />
+                <MdDelete onClick={() => deleteFunc(id)} className="text-xl cursor-pointer -mb-3" />
               </div>
             )}
           </div>

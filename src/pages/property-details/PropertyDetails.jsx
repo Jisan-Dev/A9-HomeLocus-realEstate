@@ -68,10 +68,10 @@ const PropertyDetails = () => {
         <div className="mt-5 flex items-center gap-3 text-xs flex-wrap font-source">
           <strong className="text-neutral-900 text-[18px] font-bold mr-1">Facilities : </strong>
           {property.facilities.map((facility, index) => (
-            <div key={index} className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2 badge badge-ghost py-4 px-6">
+            <div key={index} className="inline-flex shrink-0 items-center gap-2 badge badge-ghost py-4 px-6">
               <TbHomeCheck />
 
-              <div className="mt-1.5 sm:mt-0 ">
+              <div>
                 <p className="font-medium text-base md:text-lg">{facility}</p>
               </div>
             </div>

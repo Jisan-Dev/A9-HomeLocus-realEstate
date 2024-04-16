@@ -12,7 +12,7 @@ import { toast } from 'react-toastify';
 const schema = z.object({
   name: z.string().min(2).max(50).nonempty(),
   email: z.string().email(),
-  photo: z.string().url(),
+  photo: z.string().optional(),
   password: z
     .string()
     .min(6)
@@ -58,6 +58,16 @@ const Register = () => {
         }
       })
       .catch((error) => {
+        toast.error(error.code, {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
         console.log(error);
       });
   };

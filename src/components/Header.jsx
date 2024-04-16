@@ -85,7 +85,7 @@ const Header = () => {
               <div className="tooltip tooltip-left cursor-pointer -mb-1" data-tip={user.displayName}>
                 <div className="avatar">
                   <div className="w-12 rounded-full mr-2">
-                    <img src={user.photoURL || 'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'} />
+                    <img src={user.photoURL || 'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'} referrerPolicy="no-referrer" />
                   </div>
                 </div>
               </div>

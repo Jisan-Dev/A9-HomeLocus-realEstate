@@ -22,7 +22,7 @@ const Profile = () => {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm({ defaultValues: { name: user?.displayName, photo: user?.photoURL, email: user?.email }, resolver: zodResolver(schema) });
+  } = useForm({ defaultValues: { name: user?.displayName, photo: user?.photoURL ?? '', email: user?.email }, resolver: zodResolver(schema) });
 
   const submitHandler = (data) => {
     updateEmail(auth.currentUser, data.email)
