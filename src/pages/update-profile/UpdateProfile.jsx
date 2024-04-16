@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from 'react-helmet-async';
 import { updateEmail } from 'firebase/auth';
 import auth from '../../firebase/firebase.config';
+import updateProfile from '../../assets/updateProfile.png';
 
 const schema = z.object({
   name: z.string().min(2).max(50).nonempty(),
@@ -63,62 +64,67 @@ const UpdateProfile = () => {
   };
 
   return (
-    <div data-aos="fade-zoom-in" data-aos-duration="700" className="bg-slate-100 min-h-[calc(100vh-72px)] flex items-center justify-center font-kufam">
+    <div data-aos="fade-zoom-in" data-aos-duration="700" className="container mx-auto min-h-[calc(100vh-72px)] flex items-center justify-center max-sm:flex-col font-kufam">
       <Helmet>
         <title>HomeLocus | Update Profile</title>
       </Helmet>
-      <div className="w-md p-6 bg-white">
-        <div className="flex justify-center items-center mx-auto">
-          <h1 className="text-2xl sm:text-3xl text-transparent bg-gradient-to-br from-slate-950 via-slate-600 to-slate-950 bg-clip-text font-black font-kufam mb-4">
-            UPDATE PROFILE
-          </h1>
+      <div className="w-1/2 pt-5 max-sm:w-full max-sm:px-3">
+        <div className="max-w-[480px] p-10 max-sm:p-6 bg-white rounded-xl shadow-md">
+          <div className="flex justify-center items-center mx-auto">
+            <h1 className="text-2xl sm:text-3xl text-transparent bg-gradient-to-br from-slate-950 via-slate-600 to-slate-950 bg-clip-text font-black font-kufam mb-4 tracking-wide">
+              UPDATE PROFILE
+            </h1>
+          </div>
+          <form onSubmit={handleSubmit(submitHandler)}>
+            <div>
+              <label htmlFor="username" className="block text-sm text-gray-800 dark:text-gray-200">
+                Username
+              </label>
+              <input
+                type="text"
+                id="username"
+                {...register('name')}
+                className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              />
+              {errors.name && <div className="text-red-500 text-xs">{errors.name.message}</div>}
+            </div>
+            {/* <ToastContainer /> */}
+            <div className="mt-4">
+              <label htmlFor="photo" className="block text-sm text-gray-800 dark:text-gray-200">
+                Photo URL
+              </label>
+              <input
+                type="photo"
+                id="photo"
+                {...register('photo')}
+                className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              />
+              {errors.photo && <div className="text-red-500 text-xs">{errors.photo.message}</div>}
+            </div>
+
+            <div className="mt-4">
+              <label htmlFor="photo" className="block text-sm text-gray-800 dark:text-gray-200">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                {...register('email')}
+                className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              />
+              {errors.email && <div className="text-red-500 text-xs">{errors.email.message}</div>}
+            </div>
+
+            <div className="mt-6">
+              <button className="w-full px-6 py-2.5 text-base font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
+                Submit
+              </button>
+            </div>
+          </form>
         </div>
-        <form onSubmit={handleSubmit(submitHandler)}>
-          <div>
-            <label htmlFor="username" className="block text-sm text-gray-800 dark:text-gray-200">
-              Username
-            </label>
-            <input
-              type="text"
-              id="username"
-              {...register('name')}
-              className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
-            />
-            {errors.name && <div className="text-red-500 text-xs">{errors.name.message}</div>}
-          </div>
-          {/* <ToastContainer /> */}
-          <div className="mt-4">
-            <label htmlFor="photo" className="block text-sm text-gray-800 dark:text-gray-200">
-              Photo URL
-            </label>
-            <input
-              type="photo"
-              id="photo"
-              {...register('photo')}
-              className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
-            />
-            {errors.photo && <div className="text-red-500 text-xs">{errors.photo.message}</div>}
-          </div>
-
-          <div className="mt-4">
-            <label htmlFor="photo" className="block text-sm text-gray-800 dark:text-gray-200">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              {...register('email')}
-              className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-lg focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
-            />
-            {errors.email && <div className="text-red-500 text-xs">{errors.email.message}</div>}
-          </div>
-
-          <div className="mt-6">
-            <button className="w-full px-6 py-2.5 text-base font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
-              Submit
-            </button>
-          </div>
-        </form>
+      </div>
+      <div className="w-1/2 pt-5 max-sm:w-full">
+        <img src={updateProfile} className="w-full" />
       </div>
     </div>
   );

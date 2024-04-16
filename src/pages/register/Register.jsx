@@ -78,7 +78,7 @@ const Register = () => {
         <title>HomeLocus | Register</title>
       </Helmet>
       <div className="w-1/2 pt-5 max-sm:w-full">
-        <div className="w-full max-w-md p-6 m-auto mx-auto bg-white rounded-xl shadow-md ">
+        <div className="w-full max-w-md p-6 m-auto mx-auto bg-white rounded-xl shadow-md">
           <div className="flex justify-center items-center mx-auto">
             <h1 className="text-2xl sm:text-3xl text-transparent bg-gradient-to-br from-slate-950 via-slate-600 to-slate-950 bg-clip-text font-black font-kufam tracking-wider">
               REGISTER
@@ -177,7 +177,7 @@ const Register = () => {
           </p>
         </div>
       </div>
-      <div className=" w-1/2 max-sm:w-full">
+      <div className=" w-1/2 max-sm:w-full max-sm:mt-2">
         <img src={signup} className="w-full" />
       </div>
     </div>
