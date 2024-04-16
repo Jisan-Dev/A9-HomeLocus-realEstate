@@ -7,11 +7,11 @@ import { Helmet } from 'react-helmet-async';
 const UserProfile = () => {
   const { user } = useContext(AuthContext);
   return (
-    <div data-aos="fade-zoom-in" data-aos-duration="700" className="flex flex-col lg:flex-row gap-6 container mx-auto min-h-[calc(100vh-172px)] items-center justify-center ">
+    <div className="flex flex-col lg:flex-row gap-6 container mx-auto min-h-[calc(100vh-172px)] items-center justify-center ">
       <Helmet>
         <title>Homelocus | User Profile</title>
       </Helmet>
-      <div className="w-1/2 max-lg:w-full  px-6 sm:px-20 py-6 sm:pt-10">
+      <div data-aos="fade-right" data-aos-duration="1000" className="w-1/2 max-lg:w-full  px-6 sm:px-20 py-6 sm:pt-10">
         <div className="w-24 h-24 rounded-lg overflow-hidden">
           <img src={user.photoURL || defaultPlaceholder} referrerPolicy="no-referrer" />
         </div>
@@ -36,7 +36,8 @@ const UserProfile = () => {
           Reach Out
         </a>
       </div>
-      <div className="w-1/2 max-sm:w-full">
+
+      <div data-aos="fade-left" data-aos-duration="1000" className="w-1/2 max-sm:w-full">
         <img src={image} className="w-full object" />
       </div>
     </div>

@@ -64,11 +64,11 @@ const UpdateProfile = () => {
   };
 
   return (
-    <div data-aos="fade-zoom-in" data-aos-duration="700" className="container mx-auto min-h-[calc(100vh-72px)] flex items-center justify-center max-sm:flex-col font-kufam">
+    <div className="container mx-auto min-h-[calc(100vh-72px)] flex items-center justify-center max-sm:flex-col font-kufam">
       <Helmet>
         <title>HomeLocus | Update Profile</title>
       </Helmet>
-      <div className="w-1/2 pt-5 max-sm:w-full max-sm:px-3">
+      <div data-aos="fade-right" data-aos-duration="1000" className="w-1/2 pt-5 max-sm:w-full max-sm:px-3">
         <div className="max-w-[480px] p-10 max-sm:p-6 bg-white rounded-xl shadow-md">
           <div className="flex justify-center items-center mx-auto">
             <h1 className="text-2xl sm:text-3xl text-transparent bg-gradient-to-br from-slate-950 via-slate-600 to-slate-950 bg-clip-text font-black font-kufam mb-4 tracking-wide">
@@ -123,7 +123,8 @@ const UpdateProfile = () => {
           </form>
         </div>
       </div>
-      <div className="w-1/2 pt-5 max-sm:w-full">
+
+      <div data-aos="fade-left" data-aos-duration="1000" className="w-1/2 pt-5 max-sm:w-full">
         <img src={updateProfile} className="w-full" />
       </div>
     </div>

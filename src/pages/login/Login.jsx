@@ -67,14 +67,11 @@ const Login = () => {
   };
 
   return (
-    <div
-      data-aos="fade-zoom-in"
-      data-aos-duration="700"
-      className="sm:min-h-[calc(100vh-72px)] max-sm:px-3 max-sm:py-5 flex items-center justify-center max-sm:flex-col font-kufam">
+    <div className="sm:min-h-[calc(100vh-72px)] max-sm:px-3 max-sm:py-5 flex items-center justify-center max-sm:flex-col font-kufam">
       <Helmet>
         <title>HomeLocus | Login</title>
       </Helmet>
-      <div className="w-1/2 pt-5 max-sm:w-full">
+      <div data-aos="fade-right" data-aos-duration="1000" className="w-1/2 pt-5 max-sm:w-full">
         <div className="w-full max-w-md p-6 m-auto mx-auto bg-white rounded-xl shadow-md">
           <div className="flex justify-center items-center mx-auto">
             <h1 className="text-2xl sm:text-3xl text-transparent bg-gradient-to-br from-slate-950 via-slate-600 to-slate-950 bg-clip-text font-black font-kufam tracking-wider">
@@ -150,7 +147,7 @@ const Login = () => {
         </div>
       </div>
 
-      <div className="w-1/2 pt-5 max-sm:w-full">
+      <div data-aos="fade-left" data-aos-duration="1000" className="w-1/2 pt-5 max-sm:w-full">
         <img src={login} />
       </div>
     </div>
