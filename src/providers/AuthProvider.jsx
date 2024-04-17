@@ -24,12 +24,10 @@ const AuthProvider = ({ children }) => {
   const githubProvider = new GithubAuthProvider();
 
   const createUser = (email, password) => {
-    // setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const handleUpdateProfile = (name, photo) => {
-    // setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
@@ -37,22 +35,18 @@ const AuthProvider = ({ children }) => {
   };
 
   const loginUser = (email, password) => {
-    // setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const logoutUser = () => {
-    // setLoading(true);
     return signOut(auth);
   };
 
   const googleLogin = () => {
-    // setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   const githubLogin = () => {
-    // setLoading(true);
     return signInWithPopup(auth, githubProvider);
   };
 
@@ -70,7 +64,7 @@ const AuthProvider = ({ children }) => {
     });
 
     return () => unsubscribe();
-  }, [isUserUpdated, user]);
+  }, [isUserUpdated]);
 
   const authInfo = { user, createUser, handleUpdateProfile, loginUser, logoutUser, googleLogin, githubLogin, isUserUpdated, setIsUserUpdated, loading };
   return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
