@@ -23,7 +23,7 @@ const schema = z.object({
 });
 
 const Register = () => {
-  const { createUser, handleUpdateProfile, setIsUserUpdated, isUserUpdated } = useContext(AuthContext);
+  const { createUser, handleUpdateProfile, setIsUserUpdated, isUserUpdated, loading } = useContext(AuthContext);
   const navigate = useNavigate();
   const {
     register,
@@ -40,7 +40,6 @@ const Register = () => {
       .then((result) => {
         if (result.user) {
           handleUpdateProfile(data.name, data.photo).then(() => {
-            console.log('profile updated', result.user);
             setIsUserUpdated(!isUserUpdated);
             reset();
             toast.success('Successfully registered', {
@@ -69,6 +68,7 @@ const Register = () => {
           progress: undefined,
           theme: 'dark',
         });
+        setIsUserUpdated(!isUserUpdated);
         console.log(error);
       });
   };
@@ -154,7 +154,7 @@ const Register = () => {
 
             <div className="mt-6">
               <button className="w-full px-6 py-2.5 text-base font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
-                Sign Up
+                {loading ? <span className="loading loading-infinity loading-sm p-0 h-4 -mb-1"></span> : 'Sign Up'}
               </button>
             </div>
           </form>

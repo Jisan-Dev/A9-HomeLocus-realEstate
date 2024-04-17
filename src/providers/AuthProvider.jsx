@@ -24,6 +24,7 @@ const AuthProvider = ({ children }) => {
   const githubProvider = new GithubAuthProvider();
 
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
@@ -35,6 +36,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const loginUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 

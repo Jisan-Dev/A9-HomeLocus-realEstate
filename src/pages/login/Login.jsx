@@ -23,7 +23,7 @@ const schema = z.object({
 
 const Login = () => {
   const [isPassVisible, setIsPassVisible] = useState(false);
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, setIsUserUpdated, isUserUpdated, loading } = useContext(AuthContext);
   const location = useLocation();
 
   const navigate = useNavigate();
@@ -62,6 +62,7 @@ const Login = () => {
           progress: undefined,
           theme: 'dark',
         });
+        setIsUserUpdated(!isUserUpdated);
         console.error(error);
       });
   };
@@ -122,7 +123,7 @@ const Login = () => {
 
             <div className="mt-6">
               <button className="w-full px-6 py-2.5 text-base font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
-                Sign In
+                {loading ? <span className="loading loading-infinity loading-sm p-0 h-4 -mb-1"></span> : 'Sign In'}
               </button>
             </div>
           </form>
