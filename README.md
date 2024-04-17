@@ -5,6 +5,8 @@
 Home_locus is a residential real estate company. This is the website where you can look for a comfortable place to live with your new family and your child.
 Increase the harmony of your family and wife to be at home.
 
+Live site: [https://home-locus.web.app/]
+
 ## Characteristics & Features
 
 - Signing and joining with google & github account
