@@ -1,8 +1,21 @@
-# React + Vite
+# HOME_LOCUS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Find the perfect place to live with your family
 
-Currently, two official plugins are available:
+Home_locus is a residential real estate company. This is the website where you can look for a comfortable place to live with your new family and your child.
+Increase the harmony of your family and wife to be at home.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Characteristics & Features
+
+- Signing and joining with google & github account
+- Easy to navigate through the website with convenience.
+- Beautiful & minimalistic design not to confuse you.
+- Best collection of properties to choose from.
+- Wishlist feature to save your favorite properties.
+- Users can see and update their profile information within the website
+
+## NPM packages that have used
+
+- [AOS Package](https://michalsnik.github.io/aos/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Swiper Slider](https://swiperjs.com/)
